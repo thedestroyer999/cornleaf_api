@@ -19,11 +19,15 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-key-that-is-long
 const PORT = process.env.PORT || 3001;
 
 // --- Koneksi Database ---
+// --- Koneksi Database ---
 const dbConfig = {
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'cornleafai'
+  database: process.env.DB_NAME || 'cornleafai',
+  ssl: { // <--- TAMBAHKAN BARIS INI
+    rejectUnauthorized: false
+  }      // <--- SAMPAI SINI
 };
 
 let db;
